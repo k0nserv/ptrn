@@ -1,0 +1,9 @@
+{
+	"name": "ptrn",
+	"version": "0.0.1",
+	"author": "Hugo Tuniu",
+	"description": "Pattern matching in javacript",
+	"dependencies": {
+		"jasmine-node": "*"
+	}
+}
