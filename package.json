@@ -1,10 +1,21 @@
 {
 	"name": "ptrn",
 	"main": "lib/ptrn.js",
-	"version": "0.0.1",
-	"author": "Hugo Tunius",
+	"version": "0.1.0",
+	"author": {
+		"name": "Hugo Tunius"
+	},
+	"scripts": {
+		"test": "jasmine-node spec"
+	},
 	"description": "Pattern matching in javacript",
 	"dependencies": {
 		"jasmine-node": "*"
-	}
+	},
+	"keywords": [
+		"pattern matching",
+		"functional"
+	],
+	"license": "MIT",
+	"engine": ">=0.8.0"
 }
