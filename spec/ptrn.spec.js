@@ -75,10 +75,17 @@
                     spy.f();
                     expect(s).toEqual("hello");
                 }
+            }),
+            //Has caused call stack exploding previously
+            fib  = ptrn({
+                'number#{0}': function () { return 0; },
+                'number#{1}': function () { return 1; },
+                'number': function (n) { return fib(n - 1) + fib(n - 2); }
             });
 
             spyOn(spy, 'f');
             func(0);
+            fib(10);
             func("hello");
             expect(spy.f).toHaveBeenCalled();
             expect(spy.f.callCount).toEqual(2);
