@@ -33,7 +33,7 @@ ptrn exposes a single function called ptrn. Ptrn takes a single argument, a hash
 	hello("world"); // "Hello, world!"
 ```
 
-This doesn't really look that useful, it doesn't actually add anything. However as said above pattern matching is about providing multiple 
+This doesn't really look that useful, it doesn't actually add anything. However as said above pattern matching is about providing multiple
 function definitions, let's do that.
 
 
@@ -72,7 +72,7 @@ Functions can also be matched by the number of arguments as follows.
 	var f = ptrn({
 		'*': function (n) {...}, //Single argument
 		'* -> *': function (a, b) {...}, //Dual argument
-		'* -> * -> * -> *': function (a, b, c) {...} //Tripple argument
+		'* -> * -> *': function (a, b, c) {...} //Tripple argument
 	});
 ```
 
