@@ -11,9 +11,9 @@ Pattern matching is a programming paradigm which is common in functional program
 Fibonacci in Haskell
 ```haskell
 fib :: Int -> Int
-fib 0 = 1 # Pattern matched specialisation
-fib 1 = 1 # -- || -- || -- || -- || -- || --
-fib n = fib (n - 1) + fib (n - 2) # General case implementation
+fib 0 = 1 -- Pattern matched specialisation
+fib 1 = 1 -- -- || -- || -- || -- || -- || --
+fib n = fib (n - 1) + fib (n - 2) -- General case implementation
 ```
 
 
