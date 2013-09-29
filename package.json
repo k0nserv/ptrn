@@ -1,7 +1,8 @@
 {
 	"name": "ptrn",
+	"main": "lib/ptrn.js",
 	"version": "0.0.1",
-	"author": "Hugo Tuniu",
+	"author": "Hugo Tunius",
 	"description": "Pattern matching in javacript",
 	"dependencies": {
 		"jasmine-node": "*"
