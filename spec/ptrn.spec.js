@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    var ptrn = require("../lib/ptrn.js").ptrn;
+    var ptrn = require("../lib/ptrn.js");
 
     describe("Simple usage", function () {
         var spy, helper;
