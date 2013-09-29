@@ -208,27 +208,50 @@
 
         it("supports wildcards", function () {
             var
-            ret  = ['a', 'b'],
-            func = ptrn({
+            ret  = ['a', 'b', 'c'],
+            func = [],
+            res  = [];
+
+            func[0] = ptrn({
                 '*': function () {
                     spy.f();
 
                     return ret[0];
                 }
-            }),
-            func1 = ptrn({
+            });
+
+            func[1] = ptrn({
                 '*': ret[1]
-            }),
-            res = [];
+            });
+
+            func[2] = ptrn({
+                'number -> *': ret[2]
+            });
+
 
             spyOn(spy, 'f');
-            res[0]  = func('a single argument');
-            res[1]  = func1(10);
+            res[0] = func[0]('a single argument');
+            res[1] = func[1](10);
+            res[2] = func[2](10, []);
 
-            expect(res[0]).toEqual(ret[0]);
-            expect(res[1]).toEqual(ret[1]);
+            for (var i = 0; i < res.length; ++i) {
+                expect(res[i]).toEqual(ret[i]);
+            }
+
 
             expect(spy.f).toHaveBeenCalled();
+        });
+
+        it("supports nested wildcards", function () {
+            var
+            ret  = 'a',
+            func = ptrn({
+                '* -> * -> number': ret
+            }),
+            res;
+
+            res = func('string', {}, 10);
+            expect(res).toEqual(ret);
         });
     });
 } ());
