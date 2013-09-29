@@ -162,4 +162,38 @@
             expect(spy.f.callCount).toEqual(2);
         });
     });
+
+    describe("Non function return values", function () {
+        it("supports numbers as direct values", function () {
+            var func = ptrn({
+                'number#{0}': 10,
+                'number#{10}': 100
+            });
+
+            expect(func(0)).toEqual(10);
+            expect(func(10)).toEqual(100);
+        });
+
+        it("supports string as direct values", function () {
+            var word,
+            func = ptrn({
+                'number': word
+            });
+
+            expect(func(0)).toEqual(word);
+        });
+
+        it("supports objects as direct values", function () {
+            var obj = {a: 10},
+                arr = [10, 20, 30],
+
+                func = ptrn({
+                    'number#{0}': obj,
+                    'number#{1}': arr
+                });
+
+            expect(func(0)).toEqual(obj);
+            expect(func(1)).toEqual(arr);
+        });
+    });
 } ());
