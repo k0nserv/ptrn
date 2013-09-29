@@ -196,4 +196,39 @@
             expect(func(1)).toEqual(arr);
         });
     });
+
+    describe("Wildcard support", function () {
+        var spy;
+
+        beforeEach(function () {
+            spy = {
+                f: function () {}
+            };
+        });
+
+        it("supports wildcards", function () {
+            var
+            ret  = ['a', 'b'],
+            func = ptrn({
+                '*': function () {
+                    spy.f();
+
+                    return ret[0];
+                }
+            }),
+            func1 = ptrn({
+                '*': ret[1]
+            }),
+            res = [];
+
+            spyOn(spy, 'f');
+            res[0]  = func('a single argument');
+            res[1]  = func1(10);
+
+            expect(res[0]).toEqual(ret[0]);
+            expect(res[1]).toEqual(ret[1]);
+
+            expect(spy.f).toHaveBeenCalled();
+        });
+    });
 } ());
